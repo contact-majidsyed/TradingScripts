@@ -13,3 +13,7 @@ highLowMidpoint = 0.5 * (high +low)
 
 plotchar(openCloseMidpoint, "openCloseMidpoint", "-", location.absolute, color = color.red)
 plotchar(highLowMidpoint, "highLowMidpoint", "-", location.absolute, color = color.green)
+
+
+// Result
+// ![alt](./midPointMarker_updated.png)

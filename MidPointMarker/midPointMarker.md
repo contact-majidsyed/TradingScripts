@@ -1,8 +1,12 @@
-```// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 
-//- Problem statement: Marks 2 mid points for each bar,
-//    - Midpoint one - between open and close
-//    - Midpoint two - between high and low
+#### Problem statement: 
+Marks 2 mid points for each bar
+ - Midpoint one - between open and close
+- Midpoint two - between high and low
+
+#### Code
+```
+// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 
 //@version=5
 indicator("Mid point indicator", overlay = true)
@@ -15,7 +19,7 @@ plotchar(openCloseMidpoint, "openCloseMidpoint", "-", location.absolute, color =
 plotchar(highLowMidpoint, "highLowMidpoint", "-", location.absolute, color = color.green)
 ```
 
-### Result
+### Sample Result
 
 
 ![alt](./midPointMarker_updated.png)

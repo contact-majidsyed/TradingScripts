@@ -1,0 +1,9 @@
+//@version=5
+indicator("StrongBars", overlay = true)
+ibs = (close - low) / (high - low) * 100
+
+strongBL = ibs > 75
+strongBR = ibs < 25
+
+plotcandle(open, high, low, close, title='Strong Bull', color = strongBL ?  color.green : na)
+plotcandle(open, high, low, close, title='Strong Bear', color = strongBR ?  color.red : na)

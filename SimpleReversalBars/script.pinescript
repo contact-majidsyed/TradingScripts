@@ -1,5 +1,5 @@
 //@version=5
-indicator("Simple Reversal Bar")
+indicator("Simple Reversal Bar", overlay = true)
 
 // this bar
 isCurBl = close > open
@@ -7,13 +7,20 @@ isCurBr = close < open
 isCurDj = close == open
 
 // previous bar
-isPrevDj = close[1] == open[1]
-isPrevBl = isPrevDj ? close[2] > open[2]: close[1] > open[1]
-isPrevBr = isPrevDj ? close[2] < open[2]: close[1] < open[1]
+Precision = input.float(0.01, minval=0.0001, title="Precision")
+isPrevDoji = math.abs(open[1] - close[1]) <= (high[1] - low[1]) * Precision
+// isPrevDj = close[1] == open[1]
+isPrevBl = isPrevDoji ? close[2] > open[2]: close[1] > open[1]
+isPrevBr = isPrevDoji ? close[2] < open[2]: close[1] < open[1]
 // this bar is reversal ?
 isCurBlRv = isCurBl and isPrevBr
 isCurBrRv = isCurBr and isPrevBl
 
-// this bar is BL reversal or BR reversal ?
+// plot RV
 plotcandle(open, high, low, close, title='Strong Bull Reversal', color = isCurBlRv ?  color.green : na)
 plotcandle(open, high, low, close, title='Strong Bear Reversal', color = isCurBrRv ?  color.red : na)
+
+
+isDoji = math.abs(open - close) <= (high - low) * Precision
+// plot X on doji bar
+plotchar(isDoji, "isDoji", "X", location.top, color = color.black)

@@ -20,5 +20,5 @@ plotcandle(open, high, low, close, title='Strong Bear', color = strongBR ?  colo
 
 ```
 
-#### Sample Result
+#### Sample Output
 ![strongBars](./strongBars.png)

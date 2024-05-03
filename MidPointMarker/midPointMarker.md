@@ -19,7 +19,7 @@ plotchar(openCloseMidpoint, "openCloseMidpoint", "-", location.absolute, color =
 plotchar(highLowMidpoint, "highLowMidpoint", "-", location.absolute, color = color.green)
 ```
 
-### Sample Result
+### Sample Output
 
 
 ![alt](./midPointMarker_updated.png)

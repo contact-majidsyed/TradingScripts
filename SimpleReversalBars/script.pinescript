@@ -1,0 +1,19 @@
+//@version=5
+indicator("Simple Reversal Bar")
+
+// this bar
+isCurBl = close > open
+isCurBr = close < open
+isCurDj = close == open
+
+// previous bar
+isPrevDj = close[1] == open[1]
+isPrevBl = isPrevDj ? close[2] > open[2]: close[1] > open[1]
+isPrevBr = isPrevDj ? close[2] < open[2]: close[1] < open[1]
+// this bar is reversal ?
+isCurBlRv = isCurBl and isPrevBr
+isCurBrRv = isCurBr and isPrevBl
+
+// this bar is BL reversal or BR reversal ?
+plotcandle(open, high, low, close, title='Strong Bull Reversal', color = isCurBlRv ?  color.green : na)
+plotcandle(open, high, low, close, title='Strong Bear Reversal', color = isCurBrRv ?  color.red : na)
